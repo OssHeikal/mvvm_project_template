@@ -66,38 +66,34 @@ dependencies:
 ```
 ### generate new project template:
 
-    1. install mason if not already installed
-    ```shell
+1. install mason if not already installed
+   ```shell
     dart pub global activate mason_cli
-    ```
-
-    2. add new project 
-    ```shell
+   ```
+2. add new project
+   ```shell
     mason make project_template -o ./lib
-    ```
+   ```
 
 ### generate new feature
-  1. install mason if not already installed
-    ```shell
+1. install mason if not already installed
+   ```shell
     dart pub global activate mason_cli
-    ```
-
-   2. add new feature 
-    ```shell
+   ```
+2. add new feature
+   ```shell
     mason make feature -o ./lib/features
-    ```
-
-   3. enter feature name 
+   ```
+3. enter feature name 
 
 ### add assets folder
 
-   1. install mason if not already installed
-    ```shell
-    dart pub global activate mason_cli
-    ```
-
-  2. add new feature 
+1. install mason if not already installed
+   ```shell
+    mason make feature -o ./lib/features
+   ```
+   
+2. add assets folder
     ```shell
     mason make assets -o ./assets
     ```
-    ### this adds assets folder that contains icons, images, and lang folders. 
