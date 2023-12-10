@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../repository/{{featureName.snakeCase()}}_repository.dart';
+import "../../repository/{{featureName.snakeCase()}}_repository.dart";
 
 part '{{featureName.snakeCase()}}_state.dart';
 
