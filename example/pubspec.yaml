@@ -1,0 +1,52 @@
+name: looking_user
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  bot_toast:
+  cached_network_image: 
+  connectivity_plus:
+  country_code_picker:
+  cupertino_icons:
+  flutter_screenutil:
+  custom_info_window:
+  dartz:
+  dio:
+  easy_localization:
+  easy_stepper:
+  equatable:
+  flutter:
+    sdk: flutter
+  flutter_bloc: 
+  flutter_inappwebview: 
+  flutter_secure_storage: 
+  flutter_svg: 
+  geocoding: 
+  geolocator: 
+  get_it: 
+  go_router: 
+  google_fonts: 
+  logger: 
+  permission_handler: 
+  pin_code_fields: 
+  pin_code_text_field: 
+  rxdart: 
+  shared_preferences: 
+  shimmer: 
+  syncfusion_flutter_datepicker: 
+  url_launcher: 
+  image_picker: 
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

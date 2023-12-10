@@ -1,0 +1,39 @@
+{
+  "sar": "SAR",
+  "sar_day": "SAR/Day",
+  "not_available": "Not Available",
+  "enter_hint": "Enter",
+  "continue_btn": "Continue",
+  "see_all": "See all",
+  "save": "Save",
+  "cancel": "Cancel",
+  "ok": "Ok",
+  "clear": "Clear",
+  "yes": "Yes",
+  "no": "No",
+  "retry": "Tap to retry",
+  "validator": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "name": "Name must be at least 3 characters",
+    "name_pattern": "Name should not contain numbers or special characters"
+  },
+  "dio_messages": {
+    "success": "Success! Your operation was completed successfully.",
+    "bad_request_error": "Invalid request. Please check your input and try again.",
+    "noContent": "No content available at this moment.",
+    "forbiddenError": "Insufficient permissions. You do not have the necessary permissions to perform this operation.",
+    "unauthorizedError": "Authorization required. Please log in to continue.",
+    "notFoundError": "Resource not found. The requested resource could not be located.",
+    "conflictError": "Conflict detected. The request could not be completed due to a conflict with the current state of the resource.",
+    "blockedError": "Operation blocked for security reasons.",
+    "internalServerError": "Server error. An unexpected error has occurred on our end.",
+    "notAllowed": "Method not supported. The method received in the request-line is known by the origin server but not supported by the target resource.",
+    "unknownError": "Unknown error occurred. Please try again later.",
+    "timeoutError": "Server timeout. The server did not respond in the expected time frame.",
+    "defaultError": "An error occurred. Please try again later.",
+    "cacheError": "Cache access error. An error occurred while trying to access the cache.",
+    "noInternetError": "No internet connection. Please check your network and try again."
+  }
+}
