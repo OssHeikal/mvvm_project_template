@@ -37,6 +37,7 @@ Below is a list of default dependencies used in this project:
   url_launcher:
 
 ## generate file that contains localization keys:
+
 ```shell
 flutter pub run easy_localization:generate -S "assets/lang" -O "lib/core/utils" -o "locale_keys.g.dart" -f keys
 
