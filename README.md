@@ -1,15 +1,42 @@
 # mvvm_project_template
 
-
 This repository provides a set of bricks to streamline Flutter project setup and feature integration. Whether you're starting a new project or adding features to an existing one, this boilerplate generator can save you time and maintain consistency in your codebase.
 
 ## Project Structure
 
 The project follows a modular structure to enhance organization and maintainability:
-
-- `lib/`: Core application logic
-- `assets/`: Generated assets, including icons, images, and language files
-- `features/`: Brick templates for MVVM project structure and feature additions
+```shell
+|-- assets
+|-- |-- icons
+|-- |-- images
+|-- |-- lang
+|-- |-- |-- ar.json
+|-- |-- |-- en.json
+|-- lib
+|-- |-- core
+|-- |-- |-- configs
+|-- |-- |-- |-- extensions
+|-- |-- |-- |-- locale
+|-- |-- |-- |-- router
+|-- |-- |-- |-- theme
+|-- |-- |-- data
+|-- |-- |-- |-- dio
+|-- |-- |-- |-- error
+|-- |-- |-- |-- local
+|-- |-- |-- |-- remote
+|-- |-- |-- models
+|-- |-- |-- resources
+|-- |-- |-- utils
+|-- |-- features
+|-- |-- |-- feature_1
+|-- |-- |-- |-- models
+|-- |-- |-- |-- repository
+|-- |-- |-- |-- view
+|-- |-- |-- |-- |-- screens
+|-- |-- |-- |-- |-- widgets
+|-- |-- |-- |-- view_models
+|-- README.md
+```
 
 ## Bricks
 
@@ -31,9 +58,46 @@ Automatically generate a README file for your project, ensuring consistent and i
 
 
 ## Usage 
-### Add default dependencies in pubspec.yaml file
 
-Below is a list of default dependencies used in this project:
+### install maosn cli 
+```shell
+dart pub global activate mason_cli
+```
+
+### add mason to your project 
+```shell
+mkdir mason
+cd mason
+maosn init
+```
+
+### add bricks to mason.yaml file 
+```yaml
+bricks:
+  readme:
+    git:
+      url: https://github.com/OssHeikal/mvvm_project_template.git
+      path: bricks/readme
+  assets:
+    git:
+      url: https://github.com/OssHeikal/mvvm_project_template.git
+      path: bricks/assets
+  project_template:
+    git:
+      url: https://github.com/OssHeikal/mvvm_project_template.git
+      path: bricks/project_template
+  feature:
+    git:
+      url: https://github.com/OssHeikal/mvvm_project_template.git
+      path: bricks/feature   
+```
+
+### get bricks 
+```shell
+maosn get
+```
+
+### Add default dependencies in pubspec.yaml file
 ```shell
 dependencies:
   bot_toast:
@@ -64,36 +128,30 @@ dependencies:
   shimmer:
   url_launcher:
 ```
-### generate new project template:
 
-1. install mason if not already installed
-   ```shell
-    dart pub global activate mason_cli
-   ```
-2. add new project
-   ```shell
-    mason make project_template -o ./lib
-   ```
+### generate project template:
+```shell
+mason make project_template -o .././lib
+```
 
-### generate new feature
-1. install mason if not already installed
-   ```shell
-    dart pub global activate mason_cli
-   ```
-2. add new feature
-   ```shell
-    mason make feature -o ./lib/features
-   ```
-3. enter feature name 
+### add new feature (enter feature name)
+```shell
+mason make feature -o .././lib/features 
+```
 
-### add assets folder
+### generate assets folder
+```shell
+mason make assets -o ../assets
+```
+### Add assets pathes in pubspec.yaml file
+```yaml
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lang/
+```
 
-1. install mason if not already installed
-   ```shell
-    mason make feature -o ./lib/features
-   ```
-   
-2. add assets folder
-    ```shell
-    mason make assets -o ./assets
-    ```
+### generate readme file (enter project name)
+```shell
+mason make readme -o ../
+```
