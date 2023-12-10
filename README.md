@@ -35,7 +35,7 @@ dependencies:
   shared_preferences:
   shimmer:
   url_launcher:
-
+```
 
 ## generate file that contains localization keys:
 
