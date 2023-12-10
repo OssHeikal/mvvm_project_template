@@ -1,9 +1,37 @@
 # mvvm_project_template
-# Project Name
 
-Short description or introduction of your project.
 
-## Dependencies
+This repository provides a set of bricks to streamline Flutter project setup and feature integration. Whether you're starting a new project or adding features to an existing one, this boilerplate generator can save you time and maintain consistency in your codebase.
+
+## Project Structure
+
+The project follows a modular structure to enhance organization and maintainability:
+
+- `lib/`: Core application logic
+- `assets/`: Generated assets, including icons, images, and language files
+- `templates/`: Brick templates for MVVM project structure and feature additions
+
+## Bricks
+
+### MVVM Flutter Project Template
+
+This brick generates a Flutter project template following the MVVM architecture, promoting a clean and scalable code structure.
+
+### Add New Feature
+
+Use this brick to add a new feature to your project. It ensures proper integration and follows established coding patterns.
+
+### Generate Assets
+
+This brick creates the necessary assets folder with icons, images, and language files, promoting a standardized resource management approach.
+
+### Generate README
+
+Automatically generate a README file for your project, ensuring consistent and informative documentation.
+
+
+## Usage 
+### Add default dependencies in pubspec.yaml file
 
 Below is a list of default dependencies used in this project:
 ```shell
@@ -36,8 +64,7 @@ dependencies:
   shimmer:
   url_launcher:
 ```
-
-## generate new project template:
+### generate new project template:
 
     1. install mason if not already installed
     ```shell
@@ -49,27 +76,27 @@ dependencies:
     mason make project_template -o ./lib
     ```
 
-## generate new feature
-    1. install mason if not already installed
+### generate new feature
+  1. install mason if not already installed
     ```shell
     dart pub global activate mason_cli
     ```
 
-    2. add new feature 
+   2. add new feature 
     ```shell
     mason make feature -o ./lib/features
     ```
 
-    3. enter feature name 
+   3. enter feature name 
 
-## add assets folder
+### add assets folder
 
-    1. install mason if not already installed
+   1. install mason if not already installed
     ```shell
     dart pub global activate mason_cli
     ```
 
-    2. add new feature 
+  2. add new feature 
     ```shell
     mason make assets -o ./assets
     ```
