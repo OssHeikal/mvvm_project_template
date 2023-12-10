@@ -9,7 +9,7 @@ The project follows a modular structure to enhance organization and maintainabil
 
 - `lib/`: Core application logic
 - `assets/`: Generated assets, including icons, images, and language files
-- `templates/`: Brick templates for MVVM project structure and feature additions
+- `features/`: Brick templates for MVVM project structure and feature additions
 
 ## Bricks
 
