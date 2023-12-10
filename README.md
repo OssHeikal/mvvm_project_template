@@ -94,7 +94,7 @@ bricks:
 
 ### get bricks 
 ```shell
-maosn get
+mason get
 ```
 
 ### Add default dependencies in pubspec.yaml file
