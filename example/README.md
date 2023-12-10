@@ -1,12 +1,11 @@
-# mvvm_project_template
-# Project Name
+# siaah
 
 Short description or introduction of your project.
 
 ## Dependencies
 
 Below is a list of default dependencies used in this project:
-```shell
+```yaml
 dependencies:
   bot_toast:
   cached_network_image:
@@ -37,19 +36,7 @@ dependencies:
   url_launcher:
 ```
 
-## generate new project template:
-
-    1. install mason if not already installed
-    ```shell
-    dart pub global activate mason_cli
-    ```
-
-    2. add new project 
-    ```shell
-    mason make project_template -o ./lib
-    ```
-
-## generate new feature
+## add new feature
     1. install mason if not already installed
     ```shell
     dart pub global activate mason_cli
@@ -74,3 +61,11 @@ dependencies:
     mason make assets -o ./assets
     ```
     ### this adds assets folder that contains icons, images, and lang folders. 
+
+## generate file that contains localization keys:
+
+```shell
+flutter pub run easy_localization:generate -S "assets/lang" -O "lib/core/utils" -o "locale_keys.g.dart" -f keys
+```
+
+
