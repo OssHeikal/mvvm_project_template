@@ -143,7 +143,7 @@ mason make feature -o .././lib/features
 ```shell
 mason make assets -o ../assets
 ```
-### Add assets pathes in pubspec.yaml file
+### Add assets paths in pubspec.yaml file
 ```yaml
   assets:
     - assets/images/
