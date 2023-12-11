@@ -18,7 +18,12 @@ const double degrees2Radians = pi / 180.0;
 double radians(double degrees) => degrees * degrees2Radians;
 
 extension WidgetExtension on Widget {
-  // build page route for GoRouter
+  /// Builds a page with optional transition and duration.
+  ///
+  /// - The [transition] parameter specifies the page transition animation to be used.
+  /// - The [duration] parameter specifies the duration of the transition animation.
+  ///
+  /// Returns a [Page] object representing the built page.
   Page<dynamic> buildPage({PageTransitions? transition, Duration? duration}) {
     return customTransitionPage(this, transition, duration);
   }
@@ -64,9 +69,7 @@ extension WidgetExtension on Widget {
       decoration: ShapeDecoration(
         color: color,
         shape: RoundedRectangleBorder(
-          side: borderColor != null
-              ? BorderSide(color: borderColor, width: AppSize.s1.w)
-              : BorderSide.none,
+          side: borderColor != null ? BorderSide(color: borderColor, width: AppSize.s1.w) : BorderSide.none,
           borderRadius: BorderRadius.all(
             Radius.circular(radius ?? AppSize.s10.r),
           ),
@@ -177,8 +180,7 @@ extension WidgetExtension on Widget {
 
   /// return padding Symmetric
   Padding paddingSymmetric({double vertical = 0, double horizontal = 0}) {
-    return Padding(
-        padding: EdgeInsets.symmetric(vertical: vertical, horizontal: horizontal), child: this);
+    return Padding(padding: EdgeInsets.symmetric(vertical: vertical, horizontal: horizontal), child: this);
   }
 
   Padding paddingVertical(double padding) {

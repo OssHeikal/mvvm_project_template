@@ -36,36 +36,33 @@ dependencies:
   url_launcher:
 ```
 
+## generate project template:
+```shell
+mason make project_template -o .././lib
+```
+
 ## add new feature
-    1. install mason if not already installed
-    ```shell
-    dart pub global activate mason_cli
-    ```
+- run this command and then enter feature name 
+```shell
+mason make feature -o ./lib/features
+```
 
-    2. add new feature 
-    ```shell
-    mason make feature -o ./lib/features
-    ```
-
-    3. enter feature name 
-
-## add assets folder
-
-    1. install mason if not already installed
-    ```shell
-    dart pub global activate mason_cli
-    ```
-
-    2. add new feature 
-    ```shell
-    mason make assets -o ./assets
-    ```
-    ### this adds assets folder that contains icons, images, and lang folders. 
+### generate assets folder
+```shell
+mason make assets -o ../assets
+```
+## Add assets paths in pubspec.yaml file
+```yaml
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lang/
+```
 
 ## generate file that contains localization keys:
 
 ```shell
-flutter pub run easy_localization:generate -S "assets/lang" -O "lib/core/utils" -o "locale_keys.g.dart" -f keys
+flutter pub run easy_localization:generate -S "assets/lang" -O "lib/core/resources" -o "locale_keys.g.dart" -f keys
 ```
 
 
