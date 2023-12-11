@@ -2,7 +2,6 @@ import 'dart:core';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'error_constants.dart';
@@ -10,6 +9,26 @@ import 'error_model.dart';
 import 'failure.dart';
 
 mixin HandlingException {
+  /// Wraps the execution of a future with exception handling.
+  ///
+  /// This method takes a generic type `T` and returns a `Future` that
+  /// either contains a `Failure` or a value of type `T`. It wraps the
+  /// execution of the provided future with exception handling, ensuring
+  /// that any exceptions thrown during the execution are caught and
+  /// returned as a `Failure` object.
+  ///
+  /// Example usage:
+  /// ```dart
+  /// final result = await wrapHandlingException<Model>(
+  ///  function: () => // function that returns a future dynamic response, and may throw an exception,
+  ///  jsonConvert: (json) => // convert json to the required <Model> or type
+  /// );
+  ///
+  /// result.fold(
+  ///   (failure) => print('An error occurred: ${failure.massage}'),
+  ///   (value) => print('The result is: $value'),
+  /// );
+  /// ```
   Future<Either<Failure, T>> wrapHandlingException<T>({
     required T Function(dynamic json) jsonConvert,
     required Future<Response<dynamic>> Function() function,
@@ -94,43 +113,4 @@ class ErrorHandler implements Exception {
   }
 }
 
-extension ResponseStatusTypeExtension on ResponseStatusType {
-  Failure getFailure() {
-    switch (this) {
-      case ResponseStatusType.SUCCESS:
-        return ServerFailure(statusCode: ResponseCode.SUCCESS, message: ResponseMessage.SUCCESS.tr());
-      case ResponseStatusType.NO_CONTENT:
-        return ServerFailure(statusCode: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT.tr());
-      case ResponseStatusType.BAD_REQUEST:
-        return ServerFailure(statusCode: ResponseCode.BAD_REQUEST, message: ResponseMessage.BAD_REQUEST.tr());
-      case ResponseStatusType.FORBIDDEN:
-        return ServerFailure(statusCode: ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN.tr());
-      case ResponseStatusType.UNAUTHORIZED:
-        return ServerFailure(statusCode: ResponseCode.UNAUTHORIZED, message: ResponseMessage.UNAUTHORIZED.tr());
-      case ResponseStatusType.NOT_FOUND:
-        return ServerFailure(statusCode: ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND.tr());
-      case ResponseStatusType.INTERNAL_SERVER_ERROR:
-        return ServerFailure(
-          statusCode: ResponseCode.INTERNAL_SERVER_ERROR,
-          message: ResponseMessage.INTERNAL_SERVER_ERROR.tr(),
-        );
-      case ResponseStatusType.CONNECT_TIMEOUT:
-        return ServerFailure(statusCode: ResponseCode.CONNECT_TIMEOUT, message: ResponseMessage.CONNECT_TIMEOUT.tr());
-      case ResponseStatusType.CANCEL:
-        return ServerFailure(statusCode: ResponseCode.CANCEL, message: ResponseMessage.CANCEL.tr());
-      case ResponseStatusType.RECEIVE_TIMEOUT:
-        return ServerFailure(statusCode: ResponseCode.RECEIVE_TIMEOUT, message: ResponseMessage.RECEIVE_TIMEOUT.tr());
-      case ResponseStatusType.SEND_TIMEOUT:
-        return ServerFailure(statusCode: ResponseCode.SEND_TIMEOUT, message: ResponseMessage.SEND_TIMEOUT.tr());
-      case ResponseStatusType.CACHE_ERROR:
-        return ServerFailure(statusCode: ResponseCode.CACHE_ERROR, message: ResponseMessage.CACHE_ERROR.tr());
-      case ResponseStatusType.NO_INTERNET_CONNECTION:
-        return ServerFailure(
-          statusCode: ResponseCode.NO_INTERNET_CONNECTION,
-          message: ResponseMessage.NO_INTERNET_CONNECTION.tr(),
-        );
-      case ResponseStatusType.DEFAULT:
-        return ServerFailure(statusCode: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT.tr());
-    }
-  }
-}
+

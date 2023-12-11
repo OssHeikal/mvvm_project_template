@@ -1,3 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
+
+import 'failure.dart';
 class ErrorConstants {
   ErrorConstants._();
   // error handler
@@ -81,4 +84,45 @@ enum ResponseStatusType {
   CACHE_ERROR,
   NO_INTERNET_CONNECTION,
   DEFAULT
+}
+
+extension ResponseStatusTypeExtension on ResponseStatusType {
+  Failure getFailure() {
+    switch (this) {
+      case ResponseStatusType.SUCCESS:
+        return ServerFailure(statusCode: ResponseCode.SUCCESS, message: ResponseMessage.SUCCESS.tr());
+      case ResponseStatusType.NO_CONTENT:
+        return ServerFailure(statusCode: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT.tr());
+      case ResponseStatusType.BAD_REQUEST:
+        return ServerFailure(statusCode: ResponseCode.BAD_REQUEST, message: ResponseMessage.BAD_REQUEST.tr());
+      case ResponseStatusType.FORBIDDEN:
+        return ServerFailure(statusCode: ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN.tr());
+      case ResponseStatusType.UNAUTHORIZED:
+        return ServerFailure(statusCode: ResponseCode.UNAUTHORIZED, message: ResponseMessage.UNAUTHORIZED.tr());
+      case ResponseStatusType.NOT_FOUND:
+        return ServerFailure(statusCode: ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND.tr());
+      case ResponseStatusType.INTERNAL_SERVER_ERROR:
+        return ServerFailure(
+          statusCode: ResponseCode.INTERNAL_SERVER_ERROR,
+          message: ResponseMessage.INTERNAL_SERVER_ERROR.tr(),
+        );
+      case ResponseStatusType.CONNECT_TIMEOUT:
+        return ServerFailure(statusCode: ResponseCode.CONNECT_TIMEOUT, message: ResponseMessage.CONNECT_TIMEOUT.tr());
+      case ResponseStatusType.CANCEL:
+        return ServerFailure(statusCode: ResponseCode.CANCEL, message: ResponseMessage.CANCEL.tr());
+      case ResponseStatusType.RECEIVE_TIMEOUT:
+        return ServerFailure(statusCode: ResponseCode.RECEIVE_TIMEOUT, message: ResponseMessage.RECEIVE_TIMEOUT.tr());
+      case ResponseStatusType.SEND_TIMEOUT:
+        return ServerFailure(statusCode: ResponseCode.SEND_TIMEOUT, message: ResponseMessage.SEND_TIMEOUT.tr());
+      case ResponseStatusType.CACHE_ERROR:
+        return ServerFailure(statusCode: ResponseCode.CACHE_ERROR, message: ResponseMessage.CACHE_ERROR.tr());
+      case ResponseStatusType.NO_INTERNET_CONNECTION:
+        return ServerFailure(
+          statusCode: ResponseCode.NO_INTERNET_CONNECTION,
+          message: ResponseMessage.NO_INTERNET_CONNECTION.tr(),
+        );
+      case ResponseStatusType.DEFAULT:
+        return ServerFailure(statusCode: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT.tr());
+    }
+  }
 }
