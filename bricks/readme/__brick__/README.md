@@ -44,7 +44,7 @@ mason make project_template -o .././lib
 ## add new feature
 - run this command and then enter feature name 
 ```shell
-mason make feature -o ./lib/features
+mason make feature -o .././lib/features
 ```
 
 ### generate assets folder

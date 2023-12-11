@@ -1,5 +1,6 @@
+import '../../../core/data/error/error_handler.dart';
 import '../../../core/data/remote/remote_data_source.dart';
-import '../../../core/data/error/failure.dart';
+
 
 abstract class {{featureName.pascalCase()}}Repository {
   const {{featureName.pascalCase()}}Repository();
