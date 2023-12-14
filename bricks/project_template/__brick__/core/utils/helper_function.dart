@@ -1,5 +1,4 @@
 import 'package:url_launcher/url_launcher.dart';
-
 class HelperFunction {
   static Future<bool> urlLauncherApplication(String url) async {
     final uri = Uri.parse(url);

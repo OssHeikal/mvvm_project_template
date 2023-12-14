@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // Double Extensions
 extension DoubleExtensions on double? {
@@ -19,8 +20,13 @@ extension DoubleExtensions on double? {
   Size get size => Size(this!, this!);
 
   /// Leaves given height of space
-  Widget get height => SizedBox(height: this?.toDouble());
+  Widget get height => this!.h.verticalSpace;
 
   /// Leaves given width of space
-  Widget get width => SizedBox(width: this?.toDouble());
+  Widget get width => this!.w.horizontalSpace;
+ 
+  /// Converts the value of this [double] to radians.
+  /// 
+  /// Returns the value of this [double] in radians by multiplying it with the conversion factor `pi / 180.0`.
+  double get toRadians => this.validate() * (pi / 180.0);
 }
