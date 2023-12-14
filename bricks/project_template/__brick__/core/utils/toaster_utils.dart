@@ -20,25 +20,19 @@ class Toaster {
             color: Colors.white,
             borderRadius: BorderRadius.circular(15),
             boxShadow: [
-              BoxShadow(
-                color: Colors.grey.shade100,
-                spreadRadius: 0,
-                blurRadius: 1,
-                offset: const Offset(0, 2),
-              )
+              BoxShadow(color: Colors.grey.shade100, spreadRadius: 0, blurRadius: 1, offset: const Offset(0, 2))
             ],
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(isError ? Icons.warning_amber_rounded : CupertinoIcons.check_mark_circled,
-                  color: color, size: AppSize.s30.sp),
+              Icon(
+                isError ? Icons.warning_amber_rounded : CupertinoIcons.check_mark_circled,
+                color: color,
+                size: AppSize.s30.sp,
+              ),
               AppSize.s8.w.horizontalSpace,
-              Text(
-                text,
-                maxLines: 3,
-                style: TextStyle(color: Colors.blue, fontSize: FontSize.s16),
-              ).flexible()
+              Text(text, maxLines: 3, style: TextStyle(color: Colors.blue, fontSize: FontSize.s16)).flexible()
             ],
           ),
         ).paddingHorizontal(AppSize.screenPadding.w);

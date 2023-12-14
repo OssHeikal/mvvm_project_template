@@ -231,6 +231,78 @@ extension PaddingExtension on Widget {
   }
 }
 
+/// Extension on Widget to provide additional functionality related to routing.
+extension RouterExtension on Widget {
+  /// Builds a page with optional transition and duration.
+  ///
+  /// - The [transition] parameter specifies the page transition animation to be used.
+  /// - The [duration] parameter specifies the duration of the transition animation.
+  ///
+  /// Returns a [Page] object representing the built page.
+  Page<dynamic> buildPage({PageTransitions? transition, Duration? duration}) {
+    return customTransitionPage(this, transition, duration);
+  }
+}
+
+/// Extension on the [Widget] class to provide additional layout-related functionality.
+extension LayoutExtensions on Widget {
+  /// With custom width
+  SizedBox withWidth(double width) => SizedBox(width: width, child: this);
+
+  /// With custom height
+  SizedBox withHeight(double height) => SizedBox(height: height, child: this);
+
+  /// With custom height and width
+  SizedBox withSize(double width, double height) => SizedBox(width: width, height: height, child: this);
+
+  ///scrollable
+  Widget scrollable() {
+    return SingleChildScrollView(physics: const AlwaysScrollableScrollPhysics(), child: this);
+  }
+
+  /// add Expanded to parent widget
+  Widget expand({flex = 1}) => Expanded(flex: flex, child: this);
+
+  /// add Flexible to parent widget
+  Widget flexible({flex = 1, FlexFit? fit, bool buildWhen = true}) {
+    return buildWhen ? Flexible(flex: flex, fit: fit ?? FlexFit.loose, child: this) : this;
+  }
+
+  /// add FittedBox to parent widget
+  Widget fit({BoxFit? fit, AlignmentGeometry? alignment}) {
+    return FittedBox(fit: fit ?? BoxFit.contain, alignment: alignment ?? Alignment.center, child: this);
+  }
+
+  SliverToBoxAdapter toSliver() => SliverToBoxAdapter(child: this);
+
+  Directionality withDirectionality(TextDirection textDirection) {
+    return Directionality(textDirection: textDirection, child: this);
+  }
+}
+
+extension TransformExtension on Widget {
+  /// add rotation to parent widget
+  Widget rotate({required double angle, bool transformHitTests = true, Offset? origin}) {
+    return Transform.rotate(origin: origin, angle: angle.toRadians, transformHitTests: transformHitTests, child: this);
+  }
+
+  /// add scaling to parent widget
+  Widget scale({required double scale, Offset? origin, AlignmentGeometry? alignment, bool transformHitTests = true}) {
+    return Transform.scale(
+      scale: scale,
+      origin: origin,
+      alignment: alignment,
+      transformHitTests: transformHitTests,
+      child: this,
+    );
+  }
+
+  /// add translate to parent widget
+  Widget translate({required Offset offset, bool transformHitTests = true, Key? key}) {
+    return Transform.translate(offset: offset, transformHitTests: transformHitTests, key: key, child: this);
+  }
+}
+
 extension AnimationExtension on Widget {
   Widget setHero({String? heroKey}) {
     if (heroKey == null) return this;
@@ -261,71 +333,5 @@ extension AnimationExtension on Widget {
       duration: duration ?? const Duration(seconds: 5),
       child: this,
     );
-  }
-}
-
-extension RouterExtension on Widget {
-  /// Builds a page with optional transition and duration.
-  ///
-  /// - The [transition] parameter specifies the page transition animation to be used.
-  /// - The [duration] parameter specifies the duration of the transition animation.
-  ///
-  /// Returns a [Page] object representing the built page.
-  Page<dynamic> buildPage({PageTransitions? transition, Duration? duration}) {
-    return customTransitionPage(this, transition, duration);
-  }
-}
-
-extension LayoutExtensions on Widget {
-  /// With custom width
-  SizedBox withWidth(double width) => SizedBox(width: width, child: this);
-
-  /// With custom height
-  SizedBox withHeight(double height) => SizedBox(height: height, child: this);
-
-  /// With custom height and width
-  SizedBox withSize(double width, double height) => SizedBox(width: width, height: height, child: this);
-
-  ///scrollable
-  Widget scrollable() {
-    return SingleChildScrollView(physics: const AlwaysScrollableScrollPhysics(), child: this);
-  }
-
-  /// add Expanded to parent widget
-  Widget expand({flex = 1}) => Expanded(flex: flex, child: this);
-
-  /// add Flexible to parent widget
-  Widget flexible({flex = 1, FlexFit? fit, bool buildWhen = true}) {
-    return buildWhen ? Flexible(flex: flex, fit: fit ?? FlexFit.loose, child: this) : this;
-  }
-
-  /// add FittedBox to parent widget
-  Widget fit({BoxFit? fit, AlignmentGeometry? alignment}) {
-    return FittedBox(fit: fit ?? BoxFit.contain, alignment: alignment ?? Alignment.center, child: this);
-  }
-
-  SliverToBoxAdapter toSliver() => SliverToBoxAdapter(child: this);
-}
-
-extension TransformExtension on Widget {
-  /// add rotation to parent widget
-  Widget rotate({required double angle, bool transformHitTests = true, Offset? origin}) {
-    return Transform.rotate(origin: origin, angle: angle.toRadians, transformHitTests: transformHitTests, child: this);
-  }
-
-  /// add scaling to parent widget
-  Widget scale({required double scale, Offset? origin, AlignmentGeometry? alignment, bool transformHitTests = true}) {
-    return Transform.scale(
-      scale: scale,
-      origin: origin,
-      alignment: alignment,
-      transformHitTests: transformHitTests,
-      child: this,
-    );
-  }
-
-  /// add translate to parent widget
-  Widget translate({required Offset offset, bool transformHitTests = true, Key? key}) {
-    return Transform.translate(offset: offset, transformHitTests: transformHitTests, key: key, child: this);
   }
 }

@@ -65,9 +65,9 @@ class OverlayUtils {
       builder: (BuildContext context) {
         return DraggableScrollableSheet(
           expand: false,
-          initialChildSize: 0.85,
           maxChildSize: 0.85,
           minChildSize: 0.5,
+          initialChildSize: 0.85,
           builder: (context, controller) => child,
         );
       },
