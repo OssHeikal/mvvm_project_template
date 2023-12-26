@@ -7,8 +7,10 @@ class HelperFunction {
       return await launchUrl(
         uri,
         mode: LaunchMode.externalApplication,
-        webViewConfiguration:
-            const WebViewConfiguration(enableDomStorage: false, enableJavaScript: false),
+        webViewConfiguration: const WebViewConfiguration(
+          enableDomStorage: false,
+          enableJavaScript: false,
+        ),
       );
     } else {
       throw Exception('Unable to launch url');

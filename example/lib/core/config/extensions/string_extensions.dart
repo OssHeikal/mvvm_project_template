@@ -40,10 +40,14 @@ extension StringExtension on String? {
     }
   }
 
-  SizedBox toSvg({double? height, double? width, ColorFilter? colorFilter}) => SizedBox(
+  SizedBox toSvg({double? height, double? width, ColorFilter? colorFilter, Color? color}) {
+    if (color != null) colorFilter = ColorFilter.mode(color, BlendMode.srcIn);
+    return SizedBox(
       height: height ?? 24,
       width: width ?? 24,
-      child: SvgPicture.asset(validate(), fit: BoxFit.fill, colorFilter: colorFilter).center());
+      child: SvgPicture.asset(validate(), fit: BoxFit.fill, colorFilter: colorFilter).center(),
+    );
+  }
 
   String putDataIfEmpty({String value = ''}) {
     if (isEmptyOrNull) {

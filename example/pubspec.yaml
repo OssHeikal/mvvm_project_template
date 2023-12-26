@@ -32,6 +32,7 @@ dependencies:
   get_it: 
   go_router: 
   google_fonts: 
+  injectable:
   logger: 
   permission_handler: 
   pin_code_fields: 
@@ -44,9 +45,13 @@ dependencies:
   image_picker: 
 
 dev_dependencies:
+  build_runner: 
+  flutter_gen_runner: 
   flutter_lints: ^2.0.0
+
   flutter_test:
     sdk: flutter
+  injectable_generator: ^2.4.1
 
 flutter:
   uses-material-design: true

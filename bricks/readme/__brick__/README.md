@@ -27,6 +27,7 @@ dependencies:
   go_router:
   google_fonts:
   image_picker:
+  injectable:  
   logger:
   permission_handler:
   pin_code_text_field:
@@ -59,10 +60,48 @@ mason make assets -o ../assets
     - assets/lang/
 ```
 
+## generate file that contains assets variables and widgets and injectable: 
+
+1. activate flutter gen 
+
+```shell
+dart pub global activate flutter_gen
+```
+
+2. add these dependencies to dev_dependencies  
+
+```yaml
+dev_dependencies:
+  build_runner:
+  flutter_gen_runner:
+  injectable_generator: 
+```
+
+3. add flutter gen configs to pubspec.yaml
+
+```yaml
+flutter_gen:
+  output: lib/resources/gen/
+  line_length: 80 
+
+  # Optional
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+    rive: true
+    lottie: true
+```
+
+4. auto generate files like (injection.config.dart - assets.gen.dart)
+
+```shell
+dart run build_runner build
+```
+
 ## generate file that contains localization keys:
 
 ```shell
-flutter pub run easy_localization:generate -S "assets/lang" -O "lib/core/resources" -o "locale_keys.g.dart" -f keys
+flutter pub run easy_localization:generate -S "assets/lang" -O "lib/core/resources/gen" -o "locale_keys.g.dart" -f keys
 ```
 
 

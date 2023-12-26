@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // int Extensions
 extension IntExtensions on int? {
   /// Validate given int is not null and returns given value if null.
-  int validate({int value = 0}) {
-    return this ?? value;
-  }
+  int validate({int value = 0}) => this ?? value;
 
   /// Leaves given height of space
-  Widget get height => SizedBox(height: this?.toDouble());
+  Widget get height => SizedBox(height: this?.h.toDouble());
 
   /// Leaves given width of space
-  Widget get width => SizedBox(width: this?.toDouble());
+  Widget get width => SizedBox(width: this?.w.toDouble());
 
   /// HTTP status code
   bool isSuccessful() => this! >= 200 && this! <= 206;

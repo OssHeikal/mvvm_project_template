@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
+@LazySingleton()
 class LoggerInterceptor extends Interceptor {
   final _logger =
       Logger(printer: PrettyPrinter(methodCount: 0, errorMethodCount: 5, lineLength: 75, colors: true, printEmojis: true, printTime: false));

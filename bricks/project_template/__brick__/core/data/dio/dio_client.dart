@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 
 import '../remote/remote_urls.dart';
 import 'logger_interceptor.dart';
 
+@LazySingleton()
 class DioClient {
   final LoggerInterceptor loggingInterceptor;
   late Dio dio;
