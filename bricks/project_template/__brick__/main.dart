@@ -7,47 +7,42 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/bloc_observer/app_bloc_observer.dart';
 import 'core/config/locale/localization_constants.dart';
 import 'core/config/router/router_config.dart';
+import 'core/config/service_locator/injection.dart';
 import 'core/config/theme/light_theme.dart';
-import 'core/utils/service_locator.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
   Bloc.observer = AppBlocObserver();
-  await di.init();
-  await Future.delayed(const Duration(seconds: 2));
-  runApp(EasyLocalization(
+  Future.wait([EasyLocalization.ensureInitialized(), configureInjection()]).then((value) => runApp(EasyLocalization(
+      saveLocale: true,
       supportedLocales: LocalizationConstants.supportedLocale,
       path: LocalizationConstants.localeFolderPath,
       startLocale: LocalizationConstants.favoriteLang,
-      child: const MyApp()));
+      child: const MyApp())));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [],
-      child: ScreenUtilInit(
-        designSize: const Size(393, 852),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (BuildContext context, Widget? child) {
-          return Builder(builder: (ctx) {
-            return MaterialApp.router(
-              routerConfig: RouteConfigs.routerConfig,
-              locale: ctx.locale,
-              builder: BotToastInit(),
-              supportedLocales: ctx.supportedLocales,
-              localizationsDelegates: ctx.localizationDelegates,
-              debugShowCheckedModeBanner: false,
-              themeMode: ThemeMode.light,
-              theme: LightTheme.getTheme(),
-            );
-          });
-        },
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(393, 852),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (BuildContext context, Widget? child) {
+        return Builder(builder: (ctx) {
+          return MaterialApp.router(
+            routerConfig: RouteConfigs.routerConfig,
+            locale: ctx.locale,
+            builder: BotToastInit(),
+            supportedLocales: ctx.supportedLocales,
+            localizationsDelegates: ctx.localizationDelegates,
+            debugShowCheckedModeBanner: false,
+            themeMode: ThemeMode.light,
+            theme: LightTheme.getTheme(),
+          );
+        });
+      },
     );
   }
 }

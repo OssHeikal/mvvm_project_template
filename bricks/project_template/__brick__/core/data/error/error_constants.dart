@@ -6,22 +6,22 @@ import 'failure.dart';
 class ErrorConstants {
   ErrorConstants._();
   // error handler
-  static String success = "success";
-  static String badRequestError = "bad_request_error";
-  static String noContent = "no_content";
-  static String forbiddenError = "forbidden_error";
-  static String unauthorizedError = "unauthorized_error";
-  static String notFoundError = "not_found_error";
-  static String conflictError = "conflict_error";
-  static String blockedError = "blocked_error";
-  static String internalServerError = "internal_server_error";
-  static String notAllowed = "internal_server_error";
+  static String success = "dio_messages.success";
+  static String badRequestError = "dio_messages.bad_request_error";
+  static String noContent = "dio_messages.no_content";
+  static String forbiddenError = "dio_messages.forbidden_error";
+  static String unauthorizedError = "dio_messages.unauthorized_error";
+  static String notFoundError = "dio_messages.not_found_error";
+  static String conflictError = "dio_messages.conflict_error";
+  static String blockedError = "dio_messages.blocked_error";
+  static String internalServerError = "dio_messages.internal_server_error";
+  static String notAllowed = "dio_messages.internal_server_error";
 
-  static String unknownError = "unknown_error";
-  static String timeoutError = "timeout_error";
-  static String defaultError = "default_error";
-  static String cacheError = "cache_error";
-  static String noInternetError = "no_internet_error";
+  static String unknownError = "dio_messages.unknown_error";
+  static String timeoutError = "dio_messages.timeout_error";
+  static String defaultError = "dio_messages.default_error";
+  static String cacheError = "dio_messages.cache_error";
+  static String noInternetError = "dio_messages.no_internet_error";
 }
 
 class ResponseMessage {

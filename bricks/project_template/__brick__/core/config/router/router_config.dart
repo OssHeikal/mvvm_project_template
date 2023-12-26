@@ -2,6 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../extensions/widget_extensions.dart';
 import 'route_names.dart';
 
 class RouteConfigs {
@@ -13,6 +14,12 @@ class RouteConfigs {
     debugLogDiagnostics: true,
     navigatorKey: rootNavigatorKey,
     observers: [BotToastNavigatorObserver()],
-    routes: [],
+    routes: [
+      GoRoute(
+        path: AppRoutes.splash.path,
+        name: AppRoutes.splash.name,
+        pageBuilder: (context, state) => const Scaffold().buildPage(),
+      ),
+    ],
   );
 }

@@ -81,7 +81,7 @@ dev_dependencies:
 
 ```yaml
 flutter_gen:
-  output: lib/resources/gen/
+  output: lib/core/resources/gen/
   line_length: 80 
 
   # Optional
